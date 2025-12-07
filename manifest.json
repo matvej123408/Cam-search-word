@@ -1,9 +1,0 @@
-{
-  "name":"PWA OCR",
-  "short_name":"OCR",
-  "start_url":".",
-  "display":"standalone",
-  "background_color":"#ffffff",
-  "theme_color":"#1e88e5",
-  "icons":[]
-}
