@@ -21,13 +21,22 @@ async function initWorker(){
   await worker.initialize('eng');
 }
 
-async function startCamera(){
-  try{
-    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{exact:'environment'}}});
-  }catch(e){
-    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
+async function startCamera() {
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: { ideal: "environment" }
+      },
+      audio: false
+    });
+  } catch (e) {
+    stream = await navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: false
+    });
   }
-  video.srcObject=stream;
+
+  video.srcObject = stream;
   await video.play();
 }
 
