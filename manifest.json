@@ -1,0 +1,8 @@
+{
+  "name": "OCR Camera PWA",
+  "short_name": "OCRCam",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "icons": []
+}

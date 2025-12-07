@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>PWA OCR Camera</title>
+<link rel="manifest" href="manifest.json" />
+<script defer src="app.js"></script>
+<style>
+body { font-family: sans-serif; text-align:center; margin:20px; }
+video { width: 90%; max-width: 400px; border:1px solid #888; }
+button { padding:10px 20px; margin:10px; font-size:18px; }
+</style>
+</head>
+<body>
+<h2>Camera OCR PWA</h2>
+<video id="camera" autoplay playsinline></video><br>
+<button id="startBtn">Start</button>
+<button id="stopBtn">Stop</button>
+
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
