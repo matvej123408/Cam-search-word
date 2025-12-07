@@ -1,9 +1,30 @@
+const startBtn=document.getElementById('startBtn');
+const stopBtn=document.getElementById('stopBtn');
+const video=document.getElementById('video');
+const canvas=document.getElementById('canvas');
+const ocrText=document.getElementById('ocrText');
+const lastMatch=document.getElementById('lastMatch');
+const statusEl=document.getElementById('status');
+const wordsInput=document.getElementById('words');
+const alertAudio=document.getElementById('alertAudio');
+
+let running=false;
+let stream=null;
+let loopHandle=null;
+
+const { createWorker } = Tesseract;
+const worker=createWorker({ logger:m=>{} });
+
+async function initWorker(){
+  await worker.load();
+  await worker.loadLanguage('eng');
+  await worker.initialize('eng');
+}
+
 let video = document.getElementById("camera");
 let startBtn = document.getElementById("startBtn");
 let stopBtn = document.getElementById("stopBtn");
 
-let stream = null;
-let running = false;
 let audio = new Audio("music.mp3");
 audio.preload = "auto";
 
