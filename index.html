@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PWA OCR — sound on word</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>PWA OCR — sound when word found</h1>
+
+    <div class="controls">
+      <label for="words">Words (comma-separated):</label>
+      <input id="words" placeholder="example: stop,warning" />
+
+      <div class="buttons">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn" disabled>Stop</button>
+      </div>
+
+      <div class="status" id="status">Ready</div>
+    </div>
+
+    <div class="camera">
+      <video id="video" playsinline autoplay muted></video>
+      <canvas id="canvas" style="display:none;"></canvas>
+    </div>
+
+    <div class="results">
+      <p>Last detected text:</p>
+      <pre id="ocrText"></pre>
+      <p>Last match: <span id="lastMatch">—</span></p>
+    </div>
+
+    <audio id="alertAudio" src="music.mp3" preload="auto"></audio>
+    <p class="note">Note: sound will only play after pressing Start due to browser policy.</p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
